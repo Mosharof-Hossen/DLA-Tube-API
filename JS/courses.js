@@ -13,8 +13,19 @@ const filterByID = (id) => {
 }
 
 const courseDisplay = (data) => {
+    console.log(data);
     const parentDiv = document.getElementById("card-container");
     parentDiv.innerText = "";
+    if(data.length == 0){
+        const childDiv = document.createElement('div');
+        childDiv.className = "text-center flex flex-col gap-11 mt-11 items-center";
+        childDiv.innerHTML = 
+        `
+        <img class="" src="./images/icons/Icon.png" alt="" srcset="">
+                <h2 class="text-3xl font-bold">Oops!! Sorry, There is no content here</h2>
+        `
+        parentDiv.appendChild(childDiv)
+    }
     data.forEach(item => {
         console.log(item);
         const hours =  parseInt(item?.others?.posted_date / 3600);
@@ -22,7 +33,9 @@ const courseDisplay = (data) => {
     
         const childDiv = document.createElement('div');
         childDiv.className = "card rounded-md bg-base-100 w-80 shadow-md";
-        childDiv.innerHTML = `
+        childDiv.innerHTML = 
+        
+        `
         <div class="hero h-44 rounded-md"
             style="background-image: url(${item?.thumbnail});">
             <div class="hero-overlay rounded-md bg-opacity-20"></div>
