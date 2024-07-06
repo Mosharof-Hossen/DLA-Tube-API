@@ -16,6 +16,7 @@ const courseDisplay = (data) => {
     const parentDiv = document.getElementById("card-container");
     parentDiv.innerText = "";
     data.forEach(item => {
+        console.log(item);
         const hours =  parseInt(item?.others?.posted_date / 3600);
         const min = parseInt((item?.others?.posted_date % 3600)/60)
     
@@ -27,7 +28,7 @@ const courseDisplay = (data) => {
             <div class="hero-overlay rounded-md bg-opacity-20"></div>
 
             ${
-                (hours || min)?`<button class=" bg-black px-2 py-1 rounded-md text-white absolute right-2 top-36 text-[10px]">${hours} hrs ${min} min ago</button>`: ""
+                (hours || min)?`<button class=" bg-black px-2 py-1 rounded-md text-white absolute right-2 top-36 text-[10px]">${hours} hrs ${min} min ago</button>`: `<button class=" bg-black px-2 py-1 rounded-md text-white absolute right-2 top-36 text-[10px]">few second ago</button>`
             }
         </div>
         <div class="pt-3 px-2 space-x-2 text-base font-bold flex justify-start items-center">
@@ -41,8 +42,10 @@ const courseDisplay = (data) => {
         <div class="py-3 pl-12 space-y-1">
             <div class="flex justify-start items-center space-x-2">
                 <p class="text-sm">${item?.authors[0]?.profile_name}</p>
-                <img class=" w-[16px] h-[16px] rounded-full " src="./images/icons/verifed.png" alt=""
-                    srcset="">
+                ${
+                    (item?.authors[0]?.verified) ? `<img class=" w-[16px] h-[16px] rounded-full " src="./images/icons/verifed.png" alt="" srcset=""></img>`:""
+                }
+                
             </div>
             <p class="text-sm">${item?.others?.views} views</p>
 
