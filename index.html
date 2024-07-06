@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DLA Tube</title>
 
+    <link rel="shortcut icon" href="./images/icons/icons-video.png" type="image/x-icon">
     <!-- TailwindCSS and DaisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,23 +16,72 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/01ce8c7d62.js" crossorigin="anonymous"></script>
     <style>
         .inter-font {
             font-family: "Inter", sans-serif;
         }
     </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                        primaryColor: '#FF1F3D',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
 <body class="inter-font">
-    <header>
-        <h1>This is header</h1>
+    <header class="container mx-auto">
+        <nav>
+            <div class="navbar bg-base-100 flex justify-between">
+                <div class="">
+                    <div role="button" class="btn btn-ghost btn-circle avatar">
+                        <div class="w-10 rounded-full">
+                            <img alt="Tailwind CSS Navbar component" src="./images/icons/icons-video.png" />
+                        </div>
+                    </div>
+                    <!-- <a class="btn btn-ghost text-xl">daisyUI</a> -->
+                    <h2 class="text-3xl font-bold"><span class="text-primaryColor">DLA</span> Tube</h2>
+                </div>
+                <div>
+                    <button class="btn rounded">Sort by view</button>
+                </div>
+                <div class="flex-none gap-2">
+                    <div class="dropdown dropdown-end">
+
+                        <button class="btn bg-primaryColor rounded hover:bg-primaryColor text-white">Blog</button>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <hr class="my-5">
     </header>
     <main>
+        <!-- filter Section -->
+        <section>
+            <div class="" >
+                <div class="text-center space-x-2" id="filter-btn-div">
+                   
+                </div>
+            </div>
+        </section>
 
+        <!--  -->
     </main>
     <footer>
 
     </footer>
+    <script src="./JS/dataload.js"></script>
+    <script src="./JS/courses.js"></script>
 </body>
 
 </html>
