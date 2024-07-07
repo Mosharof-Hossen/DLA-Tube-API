@@ -1,5 +1,4 @@
 const filterBtnDisplay = (categories) => {
-    console.log(categories);
     const filterBtnDiv = document.getElementById('filter-btn-div');
     categories.forEach(category => {
         filterBtnDiv.innerHTML += `
@@ -10,17 +9,17 @@ const filterBtnDisplay = (categories) => {
 // text-white bg-primaryColor
 let categoryId = 1000;
 const filterByID = (e, id) => {
-    console.log(e.target);
     const allButton = document.getElementsByClassName("all-button");
     for (const btn of allButton) {
         console.log(btn);
         btn.classList.remove("text-white", "bg-primaryColor");
+        btn.classList.add("text-black", "bg-gray-300");
     }
+    e.target.classList.remove("text-black", "bg-gray-300")
     e.target.classList.add("text-white", "bg-primaryColor");
     categoryId = id;
     loadCourseByCategories(id);
 }
-console.log(categoryId);
 
 const courseDisplay = (data, sort) => {
     if (sort === "sort") {
