@@ -94,3 +94,4 @@ const courseDisplay = (data, sort) => {
 const filterByViews = () => {
     loadCourseByCategories(categoryId, 'sort');
 }
+
