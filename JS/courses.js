@@ -95,3 +95,7 @@ const filterByViews = () => {
     loadCourseByCategories(categoryId, 'sort');
 }
 
+// blog
+document.getElementById('blogs').addEventListener('click',()=>{
+    window.location = "blog.html";
+})
