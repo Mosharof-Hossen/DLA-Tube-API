@@ -3,19 +3,26 @@ const filterBtnDisplay = (categories) => {
     const filterBtnDiv = document.getElementById('filter-btn-div');
     categories.forEach(category => {
         filterBtnDiv.innerHTML += `
-        <button onclick="filterByID(${category.category_id})" class="filter rounded px-6 py-1 text-white bg-primaryColor">${category.category}</button>
+        <button  onclick="filterByID(event, ${category.category_id})" class="all-button filter rounded px-6 py-1 text-black bg-gray-300 ">${category.category}</button>
         `
     });
 }
+// text-white bg-primaryColor
 let categoryId = 1000;
-const filterByID = (id) => {
+const filterByID = (e, id) => {
+    console.log(e.target);
+    const allButton = document.getElementsByClassName("all-button");
+    for (const btn of allButton) {
+        console.log(btn);
+        btn.classList.remove("text-white", "bg-primaryColor");
+    }
+    e.target.classList.add("text-white", "bg-primaryColor");
     categoryId = id;
     loadCourseByCategories(id);
 }
 console.log(categoryId);
 
 const courseDisplay = (data, sort) => {
-    console.log(sort);
     if (sort === "sort") {
         for (let i = 0; i < data.length - 1; i++) {
             let highValueIndex = i;
@@ -35,6 +42,7 @@ const courseDisplay = (data, sort) => {
 
     const parentDiv = document.getElementById("card-container");
     parentDiv.innerText = "";
+    // parentDiv.classList.add
     if (data.length == 0) {
         const childDiv = document.createElement('div');
         childDiv.className = "text-center flex flex-col gap-11 mt-11 items-center";
